@@ -1,0 +1,6 @@
+cc_library {
+	name: "fastCDR",
+	srcs: ["src/cpp/*.cpp","src/cpp/exceptions/*.cpp"],
+	local_include_dirs: ["include"],
+	rtti: true
+}

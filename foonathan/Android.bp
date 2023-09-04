@@ -1,0 +1,6 @@
+cc_library {
+	name: "foonathan_memory",
+	srcs: ["src/*.cpp","src/detail/*.cpp"],
+	local_include_dirs: ["include/foonathan/memory","include/foonathan/memory/detail"],
+	rtti: true
+}
