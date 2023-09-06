@@ -1,0 +1,5 @@
+cc_binary {
+  name: "helloWorld",
+  srcs: ["main.cpp","hello.cpp"],
+  rtti: true
+}
