@@ -22,24 +22,30 @@
 
 // C++11 support defines
 #ifndef HAVE_CXX11
-#define HAVE_CXX11 @HAVE_CXX11@
+#define HAVE_CXX11 1
 #endif
 
 // Endianness defines
 #ifndef FASTCDR_IS_BIG_ENDIAN_TARGET
-#define FASTCDR_IS_BIG_ENDIAN_TARGET @FASTCDR_IS_BIG_ENDIAN_TARGET@
+#define FASTCDR_IS_BIG_ENDIAN_TARGET 0
 #endif
 
 #ifndef FASTCDR_HAVE_FLOAT128
-#define FASTCDR_HAVE_FLOAT128 @FASTCDR_HAVE_FLOAT128@
+#define FASTCDR_HAVE_FLOAT128 1
 #endif
 
 #ifndef FASTCDR_SIZEOF_LONG_DOUBLE
-#define FASTCDR_SIZEOF_LONG_DOUBLE @FASTCDR_SIZEOF_LONG_DOUBLE@
+#define FASTCDR_SIZEOF_LONG_DOUBLE 16
 #endif
 
 #if defined(__ARM_ARCH) && __ARM_ARCH <= 7
 #define FASTCDR_ARM32
 #endif
+
+#if defined(__GNUC__) && !defined(__clang__)
+#define TEMPLATE_SPEC
+#else
+#define TEMPLATE_SPEC template<>
+#endif // if defined(__GNUC__) && !defined(__clang__)
 
 #endif // _FASTCDR_CONFIG_H_
