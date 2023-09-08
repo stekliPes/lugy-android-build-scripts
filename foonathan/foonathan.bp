@@ -1,6 +1,15 @@
+cc_binary_host {
+        name: "memory_node_size_debugger",
+        srcs: [
+                "tool/node_size_debugger.cpp"
+        ],
+	cflags: ["-DVERSION=7.3"]
+}
+
 cc_library {
 	name: "foonathan_memory",
 	srcs: ["src/*.cpp","src/detail/*.cpp"],
 	local_include_dirs: ["include/foonathan/memory","include/foonathan/memory/detail"],
-	rtti: true
+	rtti: true,
+	export_include_dirs: ["include"]
 }
