@@ -23,5 +23,8 @@ cc_library {
         ],
 	generated_headers: [
  		 "foonathan_container_node_sizes_impl_hpp",
-        ]
+        ],
+	export_generated_headers: [
+                 "foonathan_container_node_sizes_impl_hpp",
+        ],
 }
