@@ -1,9 +1,16 @@
 cc_binary_host {
-        name: "memory_node_size_debugger",
-        srcs: [
-                "tool/node_size_debugger.cpp"
-        ],
+	name: "foonathan_memory_node_size_debugger",
+	srcs: [
+		"tool/node_size_debugger.cpp"
+	],
 	cflags: ["-DVERSION=7.3"]
+}
+
+genrule {
+	name: "foonathan_container_node_sizes_impl_hpp",
+	cmd: "$(location foonathan_memory_node_size_debugger) --code $(genDir)/container_node_sizes_impl.hpp",
+	tools: ["foonathan_memory_node_size_debugger"],
+	out: ["container_node_sizes_impl.hpp"]
 }
 
 cc_library {
@@ -11,5 +18,10 @@ cc_library {
 	srcs: ["src/*.cpp","src/detail/*.cpp"],
 	local_include_dirs: ["include/foonathan/memory","include/foonathan/memory/detail"],
 	rtti: true,
-	export_include_dirs: ["include"]
+	export_include_dirs: [
+              "include"
+        ],
+	generated_headers: [
+ 		 "foonathan_container_node_sizes_impl_hpp",
+        ]
 }
