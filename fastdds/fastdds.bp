@@ -77,6 +77,11 @@ cc_library {
 	local_include_dirs: [
 		"include",
 		"src/cpp",
+		"thirdparty/filewatch/",
+		"thirdparty/asio/asio/include/",
+		"thirdparty/boost/include",
+		"thirdparty/taocpp-pegtl/",
+		"thirdparty/nlohmann-json/",
 		"src/cpp/fastdds/core/condition",
 		"src/cpp/fastdds/core/policy",
 		"src/cpp/fastdds/domain",
@@ -146,7 +151,9 @@ cc_library {
 	cflags: [
 		"-fexceptions",
 		"-frtti",
-		"-Wno-non-virtual-dtor"
+		"-Wno-non-virtual-dtor",
+		"-Wno-implicit-fallthrough",
+		"-Wno-unknown-pragmas"
 	],
 	shared_libs: [
 		"foonathan_memory",
