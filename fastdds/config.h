@@ -99,7 +99,7 @@
 #endif /* ifndef HAVE_LOG_NO_ERROR */
 
 // Statistics
-#define FASTDDS_STATISTICS
+/* #undef FASTDDS_STATISTICS */
 
 // Deprecated macro
 #if __cplusplus >= 201402L
